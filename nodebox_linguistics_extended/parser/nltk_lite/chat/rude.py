@@ -6,7 +6,7 @@
 # For license information, see LICENSE.TXT
 
 from re import *
-from en.parser.nltk_lite.chat import *
+from nodebox_linguistics_extended.parser.nltk_lite.chat import *
 
 pairs = (
     (r'We (.*)',

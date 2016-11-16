@@ -35,9 +35,9 @@ p. fiction: romance
 r. humor
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.tag import string2tags, string2words
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.tag import string2tags, string2words
 import os
 
 items = list('abcdefghjklmnpr')
@@ -76,7 +76,7 @@ def tagged(files = items):
     return _read(files, string2tags)
 
 def demo():
-    from en.parser.nltk_lite.corpora import brown
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import brown
     from itertools import islice
     from pprint import pprint
 

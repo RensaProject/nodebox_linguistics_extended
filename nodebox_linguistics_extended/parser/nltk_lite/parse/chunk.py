@@ -152,9 +152,9 @@ RegexpChunk
      pattern is valid.
 """
 
-from en.parser.nltk_lite.parse import ParseI, AbstractParse
+from nodebox_linguistics_extended.parser.nltk_lite.parse import ParseI, AbstractParse
 from tree import Tree
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 import types, re
 
 ##//////////////////////////////////////////////////////
@@ -1395,7 +1395,7 @@ def demo_eval(chunkparser, text):
     # Evaluate our chunk parser.
     chunkscore = ChunkScore()
 
-    from en.parser.nltk_lite.parse import tree
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import tree
     
     for sentence in text.split('\n'):
         print sentence
@@ -1444,7 +1444,7 @@ def demo_cascade(chunkparsers, text):
     @type text: C{string}
     """
     
-    from en.parser.nltk_lite.parse.tree import Tree
+    from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
     
     for sentence in text.split('\n'):
         print sentence
@@ -1464,9 +1464,9 @@ def demo():
     and strategies.
     """
 
-    from en.parser.nltk_lite import parse
-    from en.parser.nltk_lite.tag import string2tags
-    from en.parser.nltk_lite.parse.tree import Tree
+    from nodebox_linguistics_extended.parser.nltk_lite import parse
+    from nodebox_linguistics_extended.parser.nltk_lite.tag import string2tags
+    from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
 
     text = """\
     [ the/DT little/JJ cat/NN ] sat/VBD on/IN [ the/DT mat/NN ] ./.

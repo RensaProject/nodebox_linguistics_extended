@@ -6,10 +6,10 @@
 # URL: <http://nltk.sf.net>
 # For license information, see LICENSE.TXT
 
-from en.parser.nltk_lite.parse import ParseI, AbstractParse
-from en.parser.nltk_lite.parse import cfg, pcfg
-from en.parser.nltk_lite.parse.tree import Tree, ProbabilisticTree
-from en.parser.nltk_lite.parse.chart import Chart, LeafEdge, TreeEdge, AbstractChartRule
+from nodebox_linguistics_extended.parser.nltk_lite.parse import ParseI, AbstractParse
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg, pcfg
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree, ProbabilisticTree
+from nodebox_linguistics_extended.parser.nltk_lite.parse.chart import Chart, LeafEdge, TreeEdge, AbstractChartRule
 import types
 
 ##//////////////////////////////////////////////////////
@@ -339,8 +339,8 @@ def demo():
     summary of the results are displayed.
     """
     import sys, time
-    from en.parser.nltk_lite import tokenize
-    from en.parser.nltk_lite.parse import cfg, pcfg, ViterbiParse
+    from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg, pcfg, ViterbiParse
 
     # Define two demos.  Each demo has a sentence and a grammar.
     demos = [('I saw John with my cookie', pcfg.toy1),
@@ -396,7 +396,7 @@ def demo():
     print
     print 'Draw parses (y/n)? ',
     if sys.stdin.readline().strip().lower().startswith('y'):
-        from en.parser.nltk_lite.draw.tree import draw_trees
+        from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import draw_trees
         print '  please wait...'
         draw_trees(*parses)
 

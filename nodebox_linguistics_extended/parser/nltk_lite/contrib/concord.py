@@ -5,10 +5,10 @@
 # URL: <http://nltk.sf.net>
 # For license information, see LICENSE.TXT
 
-from en.parser.nltk_lite.corpora import brown
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import brown
 from math import *
 import re
-from en.parser.nltk_lite.probability import *
+from nodebox_linguistics_extended.parser.nltk_lite.probability import *
 
 class SentencesIndex(object):
     """Class implementing an index of a collection of sentences.

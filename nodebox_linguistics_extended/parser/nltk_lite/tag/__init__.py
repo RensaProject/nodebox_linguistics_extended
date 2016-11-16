@@ -51,7 +51,7 @@ class SequentialBackoff(TagI):
             return self._backoff.tag_one(token, history)
         else:
             return None
-    
+
 class Default(SequentialBackoff):
     """
     A tagger that assigns the same tag to every token.
@@ -66,7 +66,7 @@ class Default(SequentialBackoff):
         self._tag = tag
         self._backoff = None # cannot have a backoff tagger!
         self._history = None
-        
+
     def tag_one(self, token, history=None):
         return self._tag  # ignore token and history
 
@@ -78,7 +78,7 @@ class Default(SequentialBackoff):
 # UTILITY FUNCTIONS
 ##################################################################
 
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 
 def tag2tuple(s, sep='/'):
     loc = s.rfind(sep)
@@ -103,7 +103,7 @@ def string2words(s, sep='/'):
 # EVALUATION
 ##################################################################
 
-from en.parser.nltk_lite import evaluate
+from nodebox_linguistics_extended.parser.nltk_lite import evaluate
 def accuracy(tagger, gold):
     """
     Score the accuracy of the tagger against the gold standard.

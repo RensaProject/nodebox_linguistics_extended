@@ -9,7 +9,7 @@
 # http://nltk.sourceforge.net/
 
 # I changed the import statements in NLTK from
-# "from nltk_lite." to "from en.parser.nltk_lite." for them to work.
+# "from nltk_lite." to "from nodebox_linguistics_extended.parser.nltk_lite." for them to work.
 # Additionally, two lines in ntlk_lite/probability.py 
 # were try/excepted (search source for "numpy").
 # They use imported tools from NumPy but are not needed here,
@@ -358,7 +358,7 @@ sentence_find = matches
 
 # A description and an example for each part-of-speech
 # used in tagging and chunking.
-# See http://en.wikipedia.org/wiki/Brown_Corpus#Part-of-speech_tags_used.
+# See http://nodebox_linguistics_extended.wikipedia.org/wiki/Brown_Corpus#Part-of-speech_tags_used.
 pos_tags = {
     "np"   : ("noun phrase", "the pink panther"),
     "vp"   : ("verb phrase", "die laughing madly"),

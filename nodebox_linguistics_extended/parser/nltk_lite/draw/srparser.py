@@ -75,11 +75,11 @@ Possible future improvements:
     responsible for that.
 """
 
-from en.parser.nltk_lite.draw.tree import *
-from en.parser.nltk_lite.draw import *
-from en.parser.nltk_lite import parse
-from en.parser.nltk_lite.draw.cfg import CFGEditor
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import *
+from nodebox_linguistics_extended.parser.nltk_lite.draw import *
+from nodebox_linguistics_extended.parser.nltk_lite import parse
+from nodebox_linguistics_extended.parser.nltk_lite.draw.cfg import CFGEditor
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 from Tkinter import *
 import tkFont
         
@@ -771,7 +771,7 @@ def demo():
     text. 
     """
     
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
     nonterminals = 'S VP NP PP P N Name V Det'
     (S, VP, NP, PP, P, N, Name, V, Det) = [cfg.Nonterminal(s)
                                            for s in nonterminals.split()]

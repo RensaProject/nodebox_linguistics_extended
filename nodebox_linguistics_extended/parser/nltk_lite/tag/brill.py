@@ -11,7 +11,7 @@
 Brill's transformational rule-based tagger.
 """
 
-from en.parser.nltk_lite.tag import TagI
+from nodebox_linguistics_extended.parser.nltk_lite.tag import TagI
 
 import bisect        # for binary search through a subset of indices
 import os            # for finding WSJ files
@@ -52,7 +52,7 @@ class Brill(TagI):
 
     def tag (self, tokens):
         # Inherit documentation from TagI
-        
+
         # Run the initial tagger.
         tagged_tokens = list(self._initial_tagger.tag(tokens))
 
@@ -99,7 +99,7 @@ class BrillRuleI(object):
     tokens in the corpus.
 
     Brill rules must be comparable and hashable.
-    """    
+    """
     def apply_to(self, tokens):
         """
         Apply this rule everywhere it applies in the corpus.  I.e.,
@@ -136,7 +136,7 @@ class BrillRuleI(object):
 
     def applies(self, tokens, index):
         """
-        @return: True if the rule would change the tag of 
+        @return: True if the rule would change the tag of
             C{tokens[index]}, False otherwise
         @rtype: Boolean
 
@@ -146,7 +146,7 @@ class BrillRuleI(object):
         @type index: int
         """
         assert False, "BrillRuleI is an abstract interface"
-        
+
     def original_tag(self):
         """
         @return: The tag which this C{BrillRuleI} may cause to be
@@ -180,11 +180,11 @@ class ProximateTokensRule(BrillRuleI):
     the token, such as its text or tag.  Each instance is
     parameterized by a set of tuples, specifying ranges of positions
     and property values to check for in those ranges:
-    
+
       - (M{start}, M{end}, M{value})
 
     The brill rule is then applicable to the M{n}th token iff:
-    
+
       - The M{n}th token is tagged with the rule's original tag; and
       - For each (M{start}, M{end}, M{value}) triple:
         - The property value of at least one token between
@@ -253,22 +253,22 @@ class ProximateTokensRule(BrillRuleI):
         for i in change:
             (token, tag) = tokens[i]
             tokens[i] = (token, self._replacement)
-        
+
         return change
 
     def applies(self, tokens, index):
         # Inherit docs from BrillRuleI
-        
+
         # Does the given token have this rule's "original tag"?
         if tokens[index][1] != self._original:
             return False
-        
+
         # Check to make sure that every condition holds.
         for (start, end, val) in self._conditions:
             # Find the (absolute) start and end indices.
             s = max(0, index+start)
             e = min(index+end+1, len(tokens))
-            
+
             # Look for *any* token that satisfies the condition.
             for i in range(s, e):
                 if self.extract_property(tokens[i]) == val:
@@ -289,10 +289,10 @@ class ProximateTokensRule(BrillRuleI):
         return self._replacement
 
     def __eq__(self, other):
-        return (other != None and 
-                other.__class__ == self.__class__ and 
-                self._original == other._original and 
-                self._replacement == other._replacement and 
+        return (other != None and
+                other.__class__ == self.__class__ and
+                self._original == other._original and
+                self._replacement == other._replacement and
                 self._conditions == other._conditions)
 
     def __hash__(self):
@@ -317,7 +317,7 @@ class ProximateTokensRule(BrillRuleI):
             conditions = ' if '+ ', and '.join([self._condition_to_str(c)
                                                for c in self._conditions])
         return replacement+conditions
-    
+
     def _condition_to_str(self, condition):
         """
         Return a string representation of the given condition.
@@ -395,7 +395,7 @@ class BrillTemplateI(object):
         If the C{i}th subtoken already has the correct tag (i.e., if
         C{tagged_tokens[i][1]} == C{correctTag}), then
         C{applicable_rules} should return the empty list.
-        
+
         @param token: The tagged tokens being tagged.
         @type token: C{list} of C{tuple}
         @param i: The index of the token whose tag should be corrected.
@@ -405,7 +405,7 @@ class BrillTemplateI(object):
         @rtype: C{list} of L{BrillRuleI}
         """
         raise AssertionError, "BrillTemplateI is an abstract interface"
-    
+
     def get_neighborhood(self, token, index):
         """
         Returns the set of indices C{i} such that
@@ -421,7 +421,7 @@ class BrillTemplateI(object):
         @rtype: C{Set}
         """
         raise AssertionError, "BrillTemplateI is an abstract interface"
-    
+
 class ProximateTokensTemplate(BrillTemplateI):
     """
     An brill templates that generates a list of
@@ -429,7 +429,7 @@ class ProximateTokensTemplate(BrillTemplateI):
     position.  In particular, each C{ProximateTokensTemplate} is
     parameterized by a proximate token brill rule class and a list of
     boundaries, and generates all rules that:
-    
+
       - use the given brill rule class
       - use the given list of boundaries as the C{start} and C{end}
         points for their conditions
@@ -466,7 +466,7 @@ class ProximateTokensTemplate(BrillTemplateI):
         applicable_conditions = \
              [self._applicable_conditions(tokens, index, start, end)
               for (start, end) in self._boundaries]
-            
+
         # Find all combinations of these applicable conditions.  E.g.,
         # if applicable_conditions=[[A,B], [C,D]], then this will
         # generate [[A,C], [A,D], [B,C], [B,D]].
@@ -534,7 +534,7 @@ class SymmetricProximateTokensTemplate(BrillTemplateI):
         """
         Construct a template for generating proximate token brill
         rules.
-        
+
         @type rule_class: C{class}
         @param rule_class: The proximate token brill rule class that
         should be used to generate new rules.  This class must be a
@@ -588,7 +588,7 @@ class BrillTrainer(object):
         producing at most C{max_rules} transformations, each of which
         reduces the net number of errors in the corpus by at least
         C{min_score}.
-        
+
         @type train_tokens: C{list} of L{tuple}
         @param train_tokens: The corpus of tagged tokens
         @type max_rules: C{int}
@@ -605,9 +605,9 @@ class BrillTrainer(object):
         # token to look more like the training token.
 
         test_tokens = list(self._initial_tagger.tag(t[0] for t in train_tokens))
-        
+
         if self._trace > 2: self._trace_header()
-            
+
         # Look for useful rules.
         rules = []
         try:
@@ -699,7 +699,7 @@ class BrillTrainer(object):
             is a brill rule and C{fixscore} is the number of tokens
             whose tag the rule corrects.  Note that C{fixscore} does
             I{not} include the number of tokens whose tags are changed
-            to incorrect values.        
+            to incorrect values.
         """
 
         # Create a list of all indices that are incorrectly tagged.
@@ -728,7 +728,7 @@ class BrillTrainer(object):
         @return: the set of all rules (based on the templates) that
         correct token C{i}'s tag in C{test_tokens}.
         """
-        
+
         applicable_rules = set()
         if test_tokens[i][1] != train_tokens[i][1]:
             correct_tag = train_tokens[i][1]
@@ -736,7 +736,7 @@ class BrillTrainer(object):
                 new_rules = template.applicable_rules(test_tokens, i,
                                                       correct_tag)
                 applicable_rules.update(new_rules)
-                
+
         return applicable_rules
 
     #////////////////////////////////////////////////////////////
@@ -745,7 +745,7 @@ class BrillTrainer(object):
 
     def _trace_header(self):
         print """
-           B      |     
+           B      |
    S   F   r   O  |        Score = Fixed - Broken
    c   i   o   t  |  R     Fixed = num tags changed incorrect -> correct
    o   x   k   h  |  u     Broken = num tags changed correct -> incorrect
@@ -782,7 +782,7 @@ class FastBrillTrainer(object):
         # If TESTING is true, extra computation is done to determine whether
         # each "best" rule actually reduces net error by the score it received.
         TESTING = False
-        
+
         # Basic idea: Keep track of the rules that apply at each position.
         # And keep track of the positions to which each rule applies.
 
@@ -919,7 +919,7 @@ class FastBrillTrainer(object):
                     print "%i) %s (score: %i)" %(len(rules)+1, rule, maxScore)
                     bestRule = rule
                     break
-                
+
             if bestRule == None: # all rules dropped below maxScore
                 del rulesByScore[maxScore]
                 maxScore = max(rulesByScore.keys())
@@ -931,10 +931,10 @@ class FastBrillTrainer(object):
                 print "There are %i errors before applying this rule." %before
                 assert after == -1 or before == after, \
                         "after=%i but before=%i" %(after,before)
-                        
+
             print "Applying best rule at %i locations..." \
                     %len(positionsByRule[bestRule].keys())
-            
+
             # If we reach this point, we've found a new best rule.
             # Apply the rule at the relevant sites.
             # (apply_at is a little inefficient here, since we know the rule applies
@@ -963,7 +963,7 @@ class FastBrillTrainer(object):
             #
             # If a template now generates a different set of rules, we have
             # to update our indices to reflect that.
-            print "Updating neighborhoods of changed sites.\n" 
+            print "Updating neighborhoods of changed sites.\n"
 
             # First, collect all the indices that might get new rules.
             neighbors = set()
@@ -996,14 +996,14 @@ class FastBrillTrainer(object):
             if TESTING:
                 after = before - maxScore
             print "%i obsolete rule applications, %i new ones, " %(c,d)+ \
-                    "using %i previously-unseen rules." %e        
+                    "using %i previously-unseen rules." %e
 
             maxScore = max(rulesByScore.keys()) # may have gone up
 
-        
+
         if self._trace > 0: print ("Training Brill tagger on %d tokens..." %
                                    len(train_tokens))
-        
+
         # Maintain a list of the rules that apply at each position.
         rules_by_position = [{} for tok in train_tokens]
 
@@ -1015,7 +1015,7 @@ class FastBrillTrainer(object):
 ######################################################################
 
 def _errorPositions (train_tokens, tokens):
-    return [i for i in range(len(tokens)) 
+    return [i for i in range(len(tokens))
             if tokens[i][1] !=
             train_tokens[i][1] ]
 
@@ -1045,7 +1045,7 @@ def errorList (train_tokens, tokens, radius=2):
                 s = tokens[j][0] # don't print punctuation tags
             else:
                 s = tokens[j][0] + "/" + tokens[j][1]
-                
+
             if j == i:
                 ei += "**"+s+"** "
             else:
@@ -1081,9 +1081,9 @@ def demo(num_sents=100, max_rules=200, min_score=2, error_output = "errors.out",
     @type train: L{int}
     """
 
-    from en.parser.nltk_lite.corpora import treebank
-    from en.parser.nltk_lite import tag
-    from en.parser.nltk_lite.tag import brill
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import treebank
+    from nodebox_linguistics_extended.parser.nltk_lite import tag
+    from nodebox_linguistics_extended.parser.nltk_lite.tag import brill
 
     NN_CD_tagger = tag.Regexp([(r'^-?[0-9]+(.[0-9]+)?$', 'CD'), (r'.*', 'NN')])
 

@@ -11,9 +11,9 @@
 A module to read a grammar from a *.cfg file.
 """
 
-from en.parser.nltk_lite.parse.category import *
-from en.parser.nltk_lite.parse import cfg
-from en.parser.nltk_lite.parse.featurechart import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.category import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.parse.featurechart import *
 
 
 

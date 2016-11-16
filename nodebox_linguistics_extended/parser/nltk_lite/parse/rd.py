@@ -6,10 +6,10 @@
 # URL: <http://nltk.sf.net>
 # For license information, see LICENSE.TXT
 
-from en.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 from tree import *
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.parse import AbstractParse
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.parse import AbstractParse
 from types import *
 
 ##//////////////////////////////////////////////////////
@@ -633,7 +633,7 @@ def demo():
     A demonstration of the recursive descent parser.
     """
 
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 
     # Define some nonterminals
     S, VP, NP, PP = cfg.nonterminals('S, VP, NP, PP')

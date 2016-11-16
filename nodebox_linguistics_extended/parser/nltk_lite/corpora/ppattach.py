@@ -39,9 +39,9 @@ The PP Attachment Corpus is distributed with NLTK with the permission
 of the author.
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.tag import string2tags, string2words
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.tag import string2tags, string2words
 import os
 
 items = ['training', 'devset', 'test']
@@ -72,7 +72,7 @@ def dictionary(files = items):
             }
 
 def demo():
-    from en.parser.nltk_lite.corpora import ppattach
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import ppattach
     from itertools import islice
     from pprint import pprint
 

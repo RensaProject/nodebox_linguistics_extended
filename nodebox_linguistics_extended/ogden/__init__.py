@@ -3,7 +3,7 @@
 # See LICENSE.txt for details.
 
 # Based on Charles K. Ogden list of basic English words:
-# http://ogden.basic-english.org
+# http://ogdnodebox_linguistics_extended.basic-english.org
 
 import os
 path = os.path.join(os.path.dirname(__file__), "ogden_2000.txt")

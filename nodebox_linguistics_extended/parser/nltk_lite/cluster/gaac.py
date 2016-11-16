@@ -6,7 +6,7 @@
 # URL: <http://nltk.sf.net>
 # For license information, see LICENSE.TXT
 
-from en.parser.nltk_lite.cluster import *
+from nodebox_linguistics_extended.parser.nltk_lite.cluster import *
 
 class GroupAverageAgglomerative(VectorSpace):
     """
@@ -116,7 +116,7 @@ def demo():
     Non-interactive demonstration of the clusterers with simple 2-D data.
     """
 
-    from en.parser.nltk_lite import cluster
+    from nodebox_linguistics_extended.parser.nltk_lite import cluster
 
     # use a set of tokens with 2D indices
     vectors = [array(f) for f in [[3, 3], [1, 2], [4, 2], [4, 0], [2, 3], [3, 1]]]

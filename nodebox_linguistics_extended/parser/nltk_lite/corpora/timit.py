@@ -117,8 +117,8 @@ The 4 functions are as follows.
 
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 from itertools import islice
 import ossaudiodev, time
 import sys, os, re
@@ -266,7 +266,7 @@ def play(data):
     dsp.close()
     
 def demo():
-    from en.parser.nltk_lite.corpora import timit
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import timit
 
     print "6th item (timit.items[5])"
     print "-------------------------"

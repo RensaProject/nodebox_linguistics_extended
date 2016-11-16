@@ -45,7 +45,7 @@ Phonemes: There are 39 phonemes, as shown below:
     ZH      seizure S IY ZH ER
 """
 
-from en.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
 import os
 
 items = [
@@ -81,7 +81,7 @@ def dictionary(files='cmudict'):
     return d
 
 def demo():
-    from en.parser.nltk_lite.corpora import cmudict
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import cmudict
     from itertools import islice
 
     print "raw method:"

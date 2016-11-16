@@ -13,9 +13,9 @@ feature structgures as nodes.
 """
 
 
-from en.parser.nltk_lite.parse.chart import *
-from en.parser.nltk_lite.parse.category import *
-from en.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.parse.chart import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.category import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 
 def apply(obj, vars):
     """A helper function to determine the value of an object when variables
@@ -306,7 +306,7 @@ def demo():
 
     sent = 'I saw John with a dog with my cookie'
     print "Sentence:\n", sent
-    from en.parser.nltk_lite import tokenize
+    from nodebox_linguistics_extended.parser.nltk_lite import tokenize
     tokens = list(tokenize.whitespace(sent))
     t = time.time()
     cp = FeatureEarleyChartParse(earley_grammar, earley_lexicon, trace=1)

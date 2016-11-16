@@ -12,10 +12,10 @@ a first-order model.
 """
 
 
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.parse.category import GrammarCategory
-from en.parser.nltk_lite.parse.grammarfile import GrammarFile
-from en.parser.nltk_lite.parse.tree import Tree
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.parse.category import GrammarCategory
+from nodebox_linguistics_extended.parser.nltk_lite.parse.grammarfile import GrammarFile
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
 from evaluate import *
 from logic import *
 

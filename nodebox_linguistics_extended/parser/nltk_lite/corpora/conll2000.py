@@ -10,9 +10,9 @@
 Read chunk structures from the CONLL-2000 Corpus
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.parse import tree
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.parse import tree
 import os
 
 items = ['train', 'test']
@@ -50,7 +50,7 @@ def chunked(files = items, chunk_types=('NP',)):
             yield tree.conll_chunk(sent, chunk_types)
 
 def demo():
-    from en.parser.nltk_lite.corpora import conll2000
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import conll2000
     from itertools import islice
 
     print "CONLL Chunked data\n"

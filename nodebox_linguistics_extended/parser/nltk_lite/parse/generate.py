@@ -1,4 +1,4 @@
-from en.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 
 def generate(grammar, start=None):
     if not start:

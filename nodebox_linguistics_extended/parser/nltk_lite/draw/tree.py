@@ -11,8 +11,8 @@
 Graphically display a C{Tree}.
 """
 from Tkinter import *
-from en.parser.nltk_lite.parse import tree
-from en.parser.nltk_lite.draw import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse import tree
+from nodebox_linguistics_extended.parser.nltk_lite.draw import *
 import sys
 
 ##//////////////////////////////////////////////////////
@@ -757,7 +757,7 @@ class TreeWidget(CanvasWidget):
 
 class TreeView(object):
     def __init__(self, *trees):
-        from en.parser.nltk_lite.draw import CanvasFrame
+        from nodebox_linguistics_extended.parser.nltk_lite.draw import CanvasFrame
         from math import sqrt, ceil
     
         self._trees = trees

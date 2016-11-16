@@ -2,14 +2,14 @@ import math
 import os
 
 # tagger importing
-from en.parser.nltk_lite import tag
-from en.parser.nltk_lite.tag import SequentialBackoff
+from nodebox_linguistics_extended.parser.nltk_lite import tag
+from nodebox_linguistics_extended.parser.nltk_lite.tag import SequentialBackoff
 # work-around while marshal is not moved into standard tree
-from en.parser.nltk_lite.contrib.marshal import MarshalDefault ; Default = MarshalDefault
-from en.parser.nltk_lite.contrib.marshal import MarshalUnigram ; Unigram = MarshalUnigram
-from en.parser.nltk_lite.contrib.marshal import MarshalAffix   ; Affix   = MarshalAffix
-from en.parser.nltk_lite.contrib.marshal import MarshalNgram   ; Ngram   = MarshalNgram
-from en.parser.nltk_lite.contrib.marshalbrill import *
+from nodebox_linguistics_extended.parser.nltk_lite.contrib.marshal import MarshalDefault ; Default = MarshalDefault
+from nodebox_linguistics_extended.parser.nltk_lite.contrib.marshal import MarshalUnigram ; Unigram = MarshalUnigram
+from nodebox_linguistics_extended.parser.nltk_lite.contrib.marshal import MarshalAffix   ; Affix   = MarshalAffix
+from nodebox_linguistics_extended.parser.nltk_lite.contrib.marshal import MarshalNgram   ; Ngram   = MarshalNgram
+from nodebox_linguistics_extended.parser.nltk_lite.contrib.marshalbrill import *
 
 class CombinedTagger (SequentialBackoff):
     def __init__ (self):

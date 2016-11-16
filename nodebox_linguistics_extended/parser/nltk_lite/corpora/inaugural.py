@@ -11,8 +11,8 @@ C-Span Inaugural Address Corpus
 US presidential inaugural addresses 1789-2005
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 import os, re
 
 items = [
@@ -85,7 +85,7 @@ def raw(files = items):
             yield t
 
 def demo():
-    from en.parser.nltk_lite.corpora import inaugural
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import inaugural
 
     for speech in inaugural.items:
         year = speech[:4]

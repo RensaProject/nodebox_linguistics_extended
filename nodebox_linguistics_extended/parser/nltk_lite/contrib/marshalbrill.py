@@ -11,7 +11,7 @@
 Brill's transformational rule-based tagger.
 """
 
-from en.parser.nltk_lite.tag import TagI
+from nodebox_linguistics_extended.parser.nltk_lite.tag import TagI
 
 import bisect        # for binary search through a subset of indices
 import os            # for finding WSJ files
@@ -1155,9 +1155,9 @@ def demo(num_sents=100, max_rules=200, min_score=2, error_output = "errors.out",
     @type train: L{int}
     """
 
-    from en.parser.nltk_lite.corpora import treebank
-    from en.parser.nltk_lite import tag
-    from en.parser.nltk_lite.tag import brill
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import treebank
+    from nodebox_linguistics_extended.parser.nltk_lite import tag
+    from nodebox_linguistics_extended.parser.nltk_lite.tag import brill
 
     NN_CD_tagger = tag.Regexp([(r'^-?[0-9]+(.[0-9]+)?$', 'CD'), (r'.*', 'NN')])
 

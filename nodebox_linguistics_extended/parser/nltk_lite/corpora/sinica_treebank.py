@@ -5,10 +5,10 @@
 # URL: <http://nltk.sf.net>
 # For license information, see LICENSE.TXT
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.tag import tag2tuple
-from en.parser.nltk_lite.parse import tree
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.tag import tag2tuple
+from nodebox_linguistics_extended.parser.nltk_lite.parse import tree
 import os
 
 """
@@ -34,7 +34,7 @@ The Construction of Sinica Treebank. Computational Linguistics and
 Chinese Language Processing, 4, pp 87-104.
 
 Huang Chu-Ren, Keh-Jiann Chen, Feng-Yi Chen, Keh-Jiann Chen, Zhao-Ming
-Gao, and Kuang-Yu Chen. 2000. Sinica Treebank: Design Criteria,
+Gao, and Kuang-Yu Chnodebox_linguistics_extended. 2000. Sinica Treebank: Design Criteria,
 Annotation Guidelines, and On-line Interface. Proceedings of 2nd
 Chinese Language Processing Workshop, Association for Computational
 Linguistics.
@@ -74,7 +74,7 @@ def raw(files = 'raw'):
             yield line.split()[1:]
 
 def demo():
-    from en.parser.nltk_lite.corpora import sinica_treebank
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import sinica_treebank
     from itertools import islice
 
 #    print "Parsed:"

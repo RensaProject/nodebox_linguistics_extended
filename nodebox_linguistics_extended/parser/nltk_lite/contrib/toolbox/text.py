@@ -11,7 +11,7 @@ of a Shoebox text without reference to its metadata.
 
 import re
 from utilities import Field, SequentialDictionary
-from en.parser.nltk_lite.corpora.shoebox import ShoeboxFile
+from nodebox_linguistics_extended.parser.nltk_lite.corpora.shoebox import ShoeboxFile
 
 
 # --------------------------------------------------------

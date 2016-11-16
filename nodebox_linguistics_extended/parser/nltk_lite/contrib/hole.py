@@ -1,11 +1,11 @@
 # Contributed by Peter Wang
 
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.parse.featurechart import *
-from en.parser.nltk_lite.parse.grammarfile import GrammarFile
-from en.parser.nltk_lite.draw.tree import draw_trees
-from en.parser.nltk_lite.parse import bracket_parse
-from en.parser.nltk_lite.parse import tree
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.parse.featurechart import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.grammarfile import GrammarFile
+from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import draw_trees
+from nodebox_linguistics_extended.parser.nltk_lite.parse import bracket_parse
+from nodebox_linguistics_extended.parser.nltk_lite.parse import tree
 
 """
 An implementation of the Hole Semantics model, following Blackburn and Bos,

@@ -51,7 +51,7 @@ values.
     BLTPlotFrame
 """
 
-# This is used by "from en.parser.nltk_lite.draw.plot import *". to decide what to
+# This is used by "from nodebox_linguistics_extended.parser.nltk_lite.draw.plot import *". to decide what to
 # import.  It also declares to nltk that only the Plot class is public.
 __all__ = ['Plot']
 
@@ -66,7 +66,7 @@ __all__ = ['Plot']
 from types import *
 from math import log, log10, ceil, floor
 import Tkinter, sys, time
-from en.parser.nltk_lite.draw import ShowText, in_idle
+from nodebox_linguistics_extended.parser.nltk_lite.draw import ShowText, in_idle
 
 class PlotFrameI(object):
     """

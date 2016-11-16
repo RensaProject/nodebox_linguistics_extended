@@ -6,7 +6,7 @@
 # URL: <http://nltk.sf.net>
 # For license information, see LICENSE.TXT
 
-from en.parser.nltk_lite.cluster import *
+from nodebox_linguistics_extended.parser.nltk_lite.cluster import *
 
 class KMeans(VectorSpace):
     """
@@ -164,7 +164,7 @@ def _vector_compare(x, y):
 def demo():
     # example from figure 14.9, page 517, Manning and Schutze
 
-    from en.parser.nltk_lite import cluster
+    from nodebox_linguistics_extended.parser.nltk_lite import cluster
 
     vectors = [array(f) for f in [[2, 1], [1, 3], [4, 7], [6, 7]]]
     means = [[4, 3], [5, 5]]

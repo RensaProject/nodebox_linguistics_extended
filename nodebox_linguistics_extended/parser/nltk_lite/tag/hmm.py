@@ -64,7 +64,7 @@ parameters or unsupervised learning using the Baum-Welch algorithm, a variant
 of EM.
 """
 
-from en.parser.nltk_lite.probability import *
+from nodebox_linguistics_extended.parser.nltk_lite.probability import *
 from numpy import *
 import re
 
@@ -828,7 +828,7 @@ def demo():
 
 
 def load_pos():
-    from en.parser.nltk_lite.corpora import brown
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import brown
     from itertools import islice
 
     sentences = list(islice(brown.tagged(), 100))

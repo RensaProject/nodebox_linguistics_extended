@@ -9,7 +9,7 @@
 # For license information, see LICENSE.TXT
 
 from distutils.core import setup, Extension
-import en.parser.nltk_lite
+import nodebox_linguistics_extended.parser.nltk_lite
 
 setup(
     #############################################

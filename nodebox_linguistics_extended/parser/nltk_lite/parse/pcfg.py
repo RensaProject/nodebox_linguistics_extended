@@ -8,8 +8,8 @@
 # For license information, see LICENSE.TXT
 
 import re
-from en.parser.nltk_lite.parse import cfg
-from en.parser.nltk_lite.probability import ImmutableProbabilisticMixIn
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.probability import ImmutableProbabilisticMixIn
 
 class Production(cfg.Production, ImmutableProbabilisticMixIn):
     """
@@ -180,8 +180,8 @@ def demo():
     A demonstration showing how PCFG C{Grammar}s can be created and used.
     """
 
-    from en.parser.nltk_lite.corpora import treebank, extract
-    from en.parser.nltk_lite.parse import cfg, pcfg, pchart, treetransforms
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import treebank, extract
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg, pcfg, pchart, treetransforms
     from itertools import islice
 
     # Create some probabilistic CFG Productions

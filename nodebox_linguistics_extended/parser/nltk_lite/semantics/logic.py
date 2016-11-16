@@ -22,7 +22,7 @@ The class of C{Expression} has various subclasses:
   
 """
 
-from en.parser.nltk_lite.utilities import Counter
+from nodebox_linguistics_extended.parser.nltk_lite.utilities import Counter
 
 class Error(Exception): pass
 

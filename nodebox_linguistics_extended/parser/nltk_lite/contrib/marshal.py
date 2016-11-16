@@ -9,8 +9,8 @@
 from itertools import islice
 import re
 
-import en.parser.nltk_lite.tag as tag
-from en.parser.nltk_lite.corpora import brown
+import nodebox_linguistics_extended.parser.nltk_lite.tag as tag
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import brown
 
 # marshal-classes
 

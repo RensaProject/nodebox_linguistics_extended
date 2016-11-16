@@ -22,8 +22,8 @@ Each instance of the ambiguous words "hard", "interest", "line", and "serve"
 is tagged with a sense identifier, and supplied with context.
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 import os, re, xml.sax
 
 items = ["hard", "interest", "line", "serve"]
@@ -115,7 +115,7 @@ def raw(files = items):
             yield entry
 
 def demo():
-    from en.parser.nltk_lite.corpora import senseval
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import senseval
     from itertools import islice
 
     # Print one example of each sense
@@ -123,7 +123,7 @@ def demo():
     seen = set()
     for (senses, position, context) in senseval.raw('line'):
         if senses not in seen:
-            seen.add(senses)
+            senodebox_linguistics_extended.add(senses)
             print "senses:", senses
             print "position:", position
             print "context:", ' '.join(['%s/%s' % ttok for ttok in context])

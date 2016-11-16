@@ -1,6 +1,6 @@
 from grammarfile import GrammarFile
 from featurechart import *
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 
 """
 An interactive interface to the feature-based parser. Run "featuredemo.py -h" for

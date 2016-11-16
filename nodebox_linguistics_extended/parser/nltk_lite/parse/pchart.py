@@ -37,9 +37,9 @@ search strategies.  Currently the following subclasses are defined:
 # [XX] This might not be implemented quite right -- it would be better
 # to associate probabilities with child pointer lists.
 
-from en.parser.nltk_lite.parse.chart import *
-from en.parser.nltk_lite.parse.tree import ProbabilisticTree
-from en.parser.nltk_lite.parse.cfg import Nonterminal
+from nodebox_linguistics_extended.parser.nltk_lite.parse.chart import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import ProbabilisticTree
+from nodebox_linguistics_extended.parser.nltk_lite.parse.cfg import Nonterminal
 
 # Probabilistic edges
 class ProbabilisticLeafEdge(LeafEdge):
@@ -398,8 +398,8 @@ def demo():
     summary of the results are displayed.
     """
     import sys, time
-    from en.parser.nltk_lite import tokenize
-    from en.parser.nltk_lite.parse import cfg, pcfg, pchart
+    from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg, pcfg, pchart
 
     # Define two demos.  Each demo has a sentence and a grammar.
     demos = [('I saw John with my cookie', pcfg.toy1),
@@ -466,7 +466,7 @@ def demo():
     print
     print 'Draw parses (y/n)? ',
     if sys.stdin.readline().strip().lower().startswith('y'):
-        from en.parser.nltk_lite.draw.tree import draw_trees
+        from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import draw_trees
         print '  please wait...'
         draw_trees(*parses)
 

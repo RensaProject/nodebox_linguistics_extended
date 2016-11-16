@@ -16,7 +16,7 @@ alphabetically, one per line.
 (Used in NLTK with permission.  See the README file for details.)
 """       
 
-from en.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
 import os
 
 items = ['female', 'male']
@@ -35,7 +35,7 @@ def raw(files = ['female', 'male']):
             yield word.strip()
 
 def demo():
-    from en.parser.nltk_lite.corpora import names
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import names
     from random import shuffle
     from pprint import pprint
 

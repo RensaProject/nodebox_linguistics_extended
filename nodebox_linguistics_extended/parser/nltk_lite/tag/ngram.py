@@ -15,8 +15,8 @@ the L{TagI} interface.
 
 import types, re
 from collections import deque
-from en.parser.nltk_lite.probability import FreqDist, ConditionalFreqDist
-from en.parser.nltk_lite.tag import *
+from nodebox_linguistics_extended.parser.nltk_lite.probability import FreqDist, ConditionalFreqDist
+from nodebox_linguistics_extended.parser.nltk_lite.tag import *
 
 ##############################################################
 # N-GRAM TAGGERS: these make use of history
@@ -165,7 +165,7 @@ class Trigram(Ngram):
 ##//////////////////////////////////////////////////////
 
 def _demo_tagger(tagger, gold):
-    from en.parser.nltk_lite.tag import accuracy
+    from nodebox_linguistics_extended.parser.nltk_lite.tag import accuracy
     acc = accuracy(tagger, gold)
     print 'Accuracy = %4.1f%%' % (100.0 * acc)
 
@@ -176,7 +176,7 @@ def demo():
     unigram tagger and a default tagger.  It trains and tests the
     tagger using the Brown corpus.
     """
-    from en.parser.nltk_lite.corpora import brown
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import brown
     import sys
 
     print 'Training taggers.'

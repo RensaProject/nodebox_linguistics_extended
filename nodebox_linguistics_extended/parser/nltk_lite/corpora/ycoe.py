@@ -6,14 +6,14 @@
 # For license information, see LICENSE.TXT
 
 """
-Reads tokens from the York-Toronto-Helsinki Parsed Corpus of 
+Reads tokens from the York-Toronto-Helsinki Parsed Corpus of
 Old English Prose (YCOE), a 1.5 million word syntactically-
 annotated corpus of Old English prose texts. The corpus is
 distributed by the Oxford Text Archive: http://www.ota.ahds.ac.uk/
 
 The YCOE corpus is divided into 100 files, each representing
 an Old English prose text. Tags used within each text complies
-to the YCOE standard: http://www-users.york.ac.uk/~lang22/YCOE/YcoeHome.htm 
+to the YCOE standard: http://www-users.york.ac.uk/~lang22/YCOE/YcoeHome.htm
 
 Output of the reader is as follows:
 
@@ -54,36 +54,36 @@ Tagged:
   ('.', '.')]
 
 Bracket Parse:
-(CP-THT: (C: '+D+atte') (IP-SUB: (IP-SUB-0: (PP: (P: 'on') (NP: (ADJ: 'o+dre') (N: 'wisan'))) 
-(BEPI: 'sint') (IP-INF: (TO: 'to') (VB^D: 'manianne') (NP: '*-1')) (NP-NOM-1: (D^N: '+da') 
-(ADJ^N: 'unge+dyldegan'))) (,: ',') (CONJP: (CONJ: '&') (IPX-SUB-CON=0: (PP: (P: 'on') 
+(CP-THT: (C: '+D+atte') (IP-SUB: (IP-SUB-0: (PP: (P: 'on') (NP: (ADJ: 'o+dre') (N: 'wisan')))
+(BEPI: 'sint') (IP-INF: (TO: 'to') (VB^D: 'manianne') (NP: '*-1')) (NP-NOM-1: (D^N: '+da')
+(ADJ^N: 'unge+dyldegan'))) (,: ',') (CONJP: (CONJ: '&') (IPX-SUB-CON=0: (PP: (P: 'on')
 (NP: (ADJ: 'o+dre'))) (NP-NOM: (D^N: '+da') (ADJ^N: 'ge+dyldegan'))))) (.: '.')),
 
 Chunk Parse:
-[(S: 
-    ('C', '+D+atte') 
-    (PP: ('P', 'on') ('ADJ', 'o+dre') ('N', 'wisan')) 
-    ('BEPI', 'sint') ('TO', 'to') ('VB^D', 'manianne') 
-    (NP: ('NP', '*-1')) ('D^N', '+da') ('ADJ^N', 'unge+dyldegan') (',', ',') ('CONJ', '&') 
+[(S:
+    ('C', '+D+atte')
+    (PP: ('P', 'on') ('ADJ', 'o+dre') ('N', 'wisan'))
+    ('BEPI', 'sint') ('TO', 'to') ('VB^D', 'manianne')
+    (NP: ('NP', '*-1')) ('D^N', '+da') ('ADJ^N', 'unge+dyldegan') (',', ',') ('CONJ', '&')
     (PP: ('P', 'on') ('ADJ', 'o+dre')) ('D^N', '+da') ('ADJ^N', 'ge+dyldegan') ('.', '.'))]
 
 """
 
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.tag import string2tags, string2words
-from en.parser.nltk_lite.parse import tree
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.tag import string2tags, string2words
+from nodebox_linguistics_extended.parser.nltk_lite.parse import tree
 from string import split
 import os
 import re
 
-""" 
+"""
 All files within the corpora
 """
 item_name = {
     'coadrian.o34': 'Adrian and Ritheus',
-    'coaelhom.o3': 'Ælfric, Supplemental Homilies',
-    'coaelive.o3': 'Ælfric''s Lives of Saints',
+    'coaelhom.o3': 'ï¿½lfric, Supplemental Homilies',
+    'coaelive.o3': 'ï¿½lfric''s Lives of Saints',
     'coalcuin': 'Alcuin De virtutibus et vitiis',
     'coalex.o23': 'Alexander''s Letter to Aristotle',
     'coapollo.o3': 'Apollonius of Tyre',
@@ -95,8 +95,8 @@ item_name = {
     'cobyrhtf.o3': 'Byrhtferth''s Manual',
     'cocanedgD': 'Canons of Edgar (D)',
     'cocanedgX': 'Canons of Edgar (X)',
-    'cocathom1.o3': 'Ælfric''s Catholic Homilies I',
-    'cocathom2.o3': 'Ælfric''s Catholic Homilies II',
+    'cocathom1.o3': 'ï¿½lfric''s Catholic Homilies I',
+    'cocathom2.o3': 'ï¿½lfric''s Catholic Homilies II',
     'cochad.o24': 'Saint Chad',
     'cochdrul': 'Chrodegang of Metz, Rule',
     'cochristoph': 'Saint Christopher',
@@ -115,7 +115,7 @@ item_name = {
     'codocu4.o24': 'Documents 4 (O2/O4)',
     'coeluc1': 'Honorius of Autun, Elucidarium 1',
     'coeluc2': 'Honorius of Autun, Elucidarium 1',
-    'coepigen.o3': 'Ælfric''s Epilogue to Genesis',
+    'coepigen.o3': 'ï¿½lfric''s Epilogue to Genesis',
     'coeuphr': 'Saint Euphrosyne',
     'coeust': 'Saint Eustace and his companions',
     'coexodusP': 'Exodus (P)',
@@ -130,8 +130,8 @@ item_name = {
     'colaece.o2': 'Leechdoms',
     'colaw1cn.o3': 'Laws, Cnut I',
     'colaw2cn.o3': 'Laws, Cnut II',
-    'colaw5atr.o3': 'Laws, Æthelred V',
-    'colaw6atr.o3': 'Laws, Æthelred VI',
+    'colaw5atr.o3': 'Laws, ï¿½thelred V',
+    'colaw6atr.o3': 'Laws, ï¿½thelred VI',
     'colawaf.o2': 'Laws, Alfred',
     'colawafint.o2': 'Alfred''s Introduction to Laws',
     'colawger.o34': 'Laws, Gerefa',
@@ -139,14 +139,14 @@ item_name = {
     'colawnorthu.o3': 'Northumbra Preosta Lagu',
     'colawwllad.o4': 'Laws, William I, Lad',
     'coleofri.o4': 'Leofric',
-    'colsigef.o3': 'Ælfric''s Letter to Sigefyrth',
-    'colsigewB': 'Ælfric''s Letter to Sigeweard (B)',
-    'colsigewZ.o34': 'Ælfric''s Letter to Sigeweard (Z)',
-    'colwgeat': 'Ælfric''s Letter to Wulfgeat',
-    'colwsigeT': 'Ælfric''s Letter to Wulfsige (T)',
-    'colwsigeXa.o34': 'Ælfric''s Letter to Wulfsige (Xa)',
-    'colwstan1.o3': 'Ælfric''s Letter to Wulfstan I',
-    'colwstan2.o3': 'Ælfric''s Letter to Wulfstan II',
+    'colsigef.o3': 'ï¿½lfric''s Letter to Sigefyrth',
+    'colsigewB': 'ï¿½lfric''s Letter to Sigeweard (B)',
+    'colsigewZ.o34': 'ï¿½lfric''s Letter to Sigeweard (Z)',
+    'colwgeat': 'ï¿½lfric''s Letter to Wulfgeat',
+    'colwsigeT': 'ï¿½lfric''s Letter to Wulfsige (T)',
+    'colwsigeXa.o34': 'ï¿½lfric''s Letter to Wulfsige (Xa)',
+    'colwstan1.o3': 'ï¿½lfric''s Letter to Wulfstan I',
+    'colwstan2.o3': 'ï¿½lfric''s Letter to Wulfstan II',
     'comargaC.o34': 'Saint Margaret (C)',
     'comargaT': 'Saint Margaret (T)',
     'comart1': 'Martyrology, I',
@@ -161,11 +161,11 @@ item_name = {
     'conicodE': 'Gospel of Nicodemus (E)',
     'coorosiu.o2': 'Orosius',
     'cootest.o3': 'Heptateuch',
-    'coprefcath1.o3': 'Ælfric''s Preface to Catholic Homilies I',
-    'coprefcath2.o3': 'Ælfric''s Preface to Catholic Homilies II',
+    'coprefcath1.o3': 'ï¿½lfric''s Preface to Catholic Homilies I',
+    'coprefcath2.o3': 'ï¿½lfric''s Preface to Catholic Homilies II',
     'coprefcura.o2': 'Preface to the Cura Pastoralis',
-    'coprefgen.o3': 'Ælfric''s Preface to Genesis',
-    'copreflives.o3': 'Ælfric''s Preface to Lives of Saints',
+    'coprefgen.o3': 'ï¿½lfric''s Preface to Genesis',
+    'copreflives.o3': 'ï¿½lfric''s Preface to Lives of Saints',
     'coprefsolilo': 'Preface to Augustine''s Soliloquies',
     'coquadru.o23': 'Pseudo-Apuleius, Medicina de quadrupedibus',
     'corood': 'History of the Holy Rood-Tree',
@@ -173,7 +173,7 @@ item_name = {
     'cosolilo': 'St. Augustine''s Soliloquies',
     'cosolsat1.o4': 'Solomon and Saturn I',
     'cosolsat2': 'Solomon and Saturn II',
-    'cotempo.o3': 'Ælfric''s De Temporibus Anni',
+    'cotempo.o3': 'ï¿½lfric''s De Temporibus Anni',
     'coverhom': 'Vercelli Homilies',
     'coverhomE': 'Vercelli Homilies (E)',
     'coverhomL': 'Vercelli Homilies (L)',
@@ -244,7 +244,7 @@ def _parse(s):
     # every time a new sentence marker is found
     for sent in s:
         if list(tokenize.regexp(sent, r'^\(')) != []:
-            fullPhrase = _strip_spaces(fullPhrase)               
+            fullPhrase = _strip_spaces(fullPhrase)
             if fullPhrase != "":
                 yield fullPhrase
             fullPhrase = sent
@@ -256,7 +256,7 @@ def _parse(s):
     if fullPhrase != "":
         yield fullPhrase
 
-""" 
+"""
 Helper function, strips tabs, extra spaces, and an erroneous leading
 and ending bracket.
 """
@@ -268,13 +268,13 @@ def _strip_spaces(s):
     s = re.sub(r'\s*$', '', s)
     s = re.sub(r'\t+', ' ', s)
     s = re.sub(r'\s+', ' ', s)
-  
+
     return s
 
 """
 Parses the files to return chunks of type chunk_types.  Partial matching, collapsed
 partials, and cascading are all supported.
-"""          
+"""
 def _chunk_parse(files, chunk_types, top_node, partial_match, collapse_partials, cascade):
     # allow any kind of bracketing for flexibility
 
@@ -298,7 +298,7 @@ def _chunk_parse(files, chunk_types, top_node, partial_match, collapse_partials,
                     matched = False
                     if partial_match == True:
                         for eachItm in chunk_types:
-                           if (len(eachItm) <= len(itm) and 
+                           if (len(eachItm) <= len(itm) and
                                eachItm == itm[:len(eachItm)]):
                                matched = True
                                if collapse_partials == True:
@@ -341,11 +341,11 @@ def _chunk_parse(files, chunk_types, top_node, partial_match, collapse_partials,
                         inTag = [] + inTag[:-2]
             yield stack
 
-""" 
+"""
 Demonstrates the functionality available in the corpus reader.
 """
 def demo():
-    from en.parser.nltk_lite.corpora import ycoe
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import ycoe
     from itertools import islice
     from pprint import pprint
 
@@ -371,4 +371,3 @@ def demo():
 
 if __name__ == '__main__':
     demo()
-

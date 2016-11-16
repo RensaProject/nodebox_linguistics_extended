@@ -404,7 +404,7 @@ def demo():
     A demonstration showing how C{Grammar}s can be created and used.
     """
 
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 
     # Create some nonterminals
     S, NP, VP, PP = cfg.nonterminals('S, NP, VP, PP')

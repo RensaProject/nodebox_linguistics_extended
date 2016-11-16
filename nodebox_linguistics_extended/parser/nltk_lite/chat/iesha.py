@@ -119,7 +119,7 @@ pairs = (
       "i wish i was a kitty!! kekekeke ^_^"))
     )
 
-from en.parser.nltk_lite.chat import Chat, converse
+from nodebox_linguistics_extended.parser.nltk_lite.chat import Chat, converse
 
 iesha = Chat(pairs, reflections)
 

@@ -40,7 +40,7 @@ def plot(text, words, rowheight=15, rowwidth=800):
     canvas.mainloop()
 
 if __name__ == '__main__':
-    from en.parser.nltk_lite.corpora import gutenberg
-    from en.parser.nltk_lite.draw import dispersion
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import gutenberg
+    from nodebox_linguistics_extended.parser.nltk_lite.draw import dispersion
     words = ['Elinor', 'Marianne', 'Edward', 'Willoughby']
     dispersion.plot(gutenberg.raw('austen-sense'), words)

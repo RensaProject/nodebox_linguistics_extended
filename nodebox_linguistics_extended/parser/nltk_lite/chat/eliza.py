@@ -12,7 +12,7 @@
 # a translation table used to convert things you say into things the
 # computer says back, e.g. "I am" --> "you are"
 
-from en.parser.nltk_lite.chat import Chat, reflections
+from nodebox_linguistics_extended.parser.nltk_lite.chat import Chat, reflections
 
 # a table of response pairs, where each pair consists of a
 # regular expression, and a list of possible responses,

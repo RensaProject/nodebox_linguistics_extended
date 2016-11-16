@@ -19,9 +19,9 @@ also .rul compatible with old pckimmo.
 import Tkinter
 import os, re, sys, types, string, glob, time, md5
 
-from en.parser.nltk_lite.contrib.fsa import *
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.contrib.fsa import *
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
 
 ############################# KIMMO GUI ##################################
 """

@@ -286,7 +286,7 @@ according to their syntactic structure, as determined by L{decompose}.
 
 """
 
-from en.parser.nltk_lite.semantics import logic
+from nodebox_linguistics_extended.parser.nltk_lite.semantics import logic
 from pprint import pformat
 
 class Error(Exception): pass

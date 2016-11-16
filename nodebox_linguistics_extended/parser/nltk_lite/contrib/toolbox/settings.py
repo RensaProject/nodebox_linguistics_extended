@@ -16,8 +16,8 @@ fields can have.
 """
 
 from elementtree import ElementTree
-from en.parser.nltk_lite.corpora.toolbox import StandardFormat
-#from en.parser.nltk_lite.parse.tree import Tree
+from nodebox_linguistics_extended.parser.nltk_lite.corpora.toolbox import StandardFormat
+#from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
 
 class ToolboxSettings(StandardFormat):
     """This class is the base class for settings files."""

@@ -7,8 +7,8 @@
 # For license information, see LICENSE.TXT
 
 from tree import *
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.parse import AbstractParse, cfg
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.parse import AbstractParse, cfg
 from types import *
 #
 
@@ -432,7 +432,7 @@ def demo():
     A demonstration of the shift-reduce parser.
     """
 
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 
     # Define some nonterminals
     S, VP, NP, PP = cfg.nonterminals('S, VP, NP, PP')

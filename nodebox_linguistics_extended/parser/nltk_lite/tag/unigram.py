@@ -14,13 +14,13 @@ the L{TagI} interface.
 """
 
 import re
-from en.parser.nltk_lite.probability import FreqDist, ConditionalFreqDist
+from nodebox_linguistics_extended.parser.nltk_lite.probability import FreqDist, ConditionalFreqDist
 
 ##############################################################
 # UNIGRAM TAGGERS: only use information about the current word
 ##############################################################
 
-from en.parser.nltk_lite.tag import *
+from nodebox_linguistics_extended.parser.nltk_lite.tag import *
 
 class Unigram(SequentialBackoff):
     """
@@ -269,7 +269,7 @@ class Lookup(SequentialBackoff):
 ##//////////////////////////////////////////////////////
 
 def _demo_tagger(tagger, gold):
-    from en.parser.nltk_lite.tag import accuracy
+    from nodebox_linguistics_extended.parser.nltk_lite.tag import accuracy
     acc = accuracy(tagger, gold)
     print 'Accuracy = %4.1f%%' % (100.0 * acc)
 
@@ -280,8 +280,8 @@ def demo():
     unigram tagger and a default tagger.  It trains and tests the
     tagger using the Brown corpus.
     """
-    from en.parser.nltk_lite.corpora import brown
-    from en.parser.nltk_lite import tag
+    from nodebox_linguistics_extended.parser.nltk_lite.corpora import brown
+    from nodebox_linguistics_extended.parser.nltk_lite import tag
     import sys
 
     print 'Training taggers.'

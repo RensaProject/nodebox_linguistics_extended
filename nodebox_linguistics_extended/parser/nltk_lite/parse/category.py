@@ -10,10 +10,10 @@
 #
 # $Id: category.py 3580 2006-10-20 04:33:07Z ehk $
 
-from en.parser.nltk_lite.parse.featurestructure import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.featurestructure import *
 
-from en.parser.nltk_lite.parse import cfg
-from en.parser.nltk_lite.semantics import logic
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.semantics import logic
 
 class Category(FeatureStructure, cfg.Nonterminal):
     """

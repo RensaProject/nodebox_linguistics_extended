@@ -10,9 +10,9 @@ FSA class - deliberately simple so that the operations are easily understood.
 Operations are based on Aho, Sethi & Ullman (1986) Chapter 3.
 """
 
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.parse.tree import Tree
-from en.parser.nltk_lite.parse import cfg, pcfg, pchart
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg, pcfg, pchart
 
 epsilon = None
 

@@ -66,12 +66,12 @@ Keyboard Shortcuts::
       [q]\t Quit
 """
 
-from en.parser.nltk_lite.draw.tree import *
-from en.parser.nltk_lite.draw import *
-from en.parser.nltk_lite import parse
-from en.parser.nltk_lite import tokenize
-from en.parser.nltk_lite.draw.cfg import *
-from en.parser.nltk_lite.draw.cfg import CFGEditor
+from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import *
+from nodebox_linguistics_extended.parser.nltk_lite.draw import *
+from nodebox_linguistics_extended.parser.nltk_lite import parse
+from nodebox_linguistics_extended.parser.nltk_lite import tokenize
+from nodebox_linguistics_extended.parser.nltk_lite.draw.cfg import *
+from nodebox_linguistics_extended.parser.nltk_lite.draw.cfg import CFGEditor
 import tkFont
 from Tkinter import *
 
@@ -869,7 +869,7 @@ def demo():
     Create a recursive descent parser demo, using a simple grammar and
     text.
     """    
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
     grammar = cfg.parse_grammar("""
     # Grammatical productions.
         S -> NP VP

@@ -51,11 +51,11 @@ Operations:
     - if connected to top & bottom, then disconnect
 """
 
-from en.parser.nltk_lite.draw import *
-from en.parser.nltk_lite.parse.cfg import *
+from nodebox_linguistics_extended.parser.nltk_lite.draw import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.cfg import *
 from Tkinter import *
-from en.parser.nltk_lite.parse.tree import *
-from en.parser.nltk_lite.draw.tree import *
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import *
+from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import *
 
 
 ######################################################################
@@ -663,7 +663,7 @@ class CFGDemo(object):
         self._top.mainloop(*args, **kwargs)
 
 def demo2():
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
     nonterminals = 'S VP NP PP P N Name V Det'
     (S, VP, NP, PP, P, N, Name, V, Det) = [cfg.Nonterminal(s)
                                            for s in nonterminals.split()]
@@ -699,7 +699,7 @@ def demo2():
 ######################################################################
 
 def demo():
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
     nonterminals = 'S VP NP PP P N Name V Det'
     (S, VP, NP, PP, P, N, Name, V, Det) = [cfg.Nonterminal(s)
                                            for s in nonterminals.split()]
@@ -733,7 +733,7 @@ def demo():
     top.mainloop()
 
 def demo3():
-    from en.parser.nltk_lite.parse import cfg
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
     (S, VP, NP, PP, P, N, Name, V, Det) = \
         nonterminals('S, VP, NP, PP, P, N, Name, V, Det')
     

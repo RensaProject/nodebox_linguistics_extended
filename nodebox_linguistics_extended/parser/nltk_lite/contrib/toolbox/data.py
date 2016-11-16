@@ -11,8 +11,8 @@
 """module for reading Toolbox data files
 """
 
-from en.parser.nltk_lite.etree.ElementTree import TreeBuilder
-from en.parser.nltk_lite.corpora import toolbox
+from nodebox_linguistics_extended.parser.nltk_lite.etree.ElementTree import TreeBuilder
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import toolbox
 
 class ToolboxData(toolbox.ToolboxData):
     def __init__(self):
@@ -172,7 +172,7 @@ def indent(elem, level=0):
             elem.tail = i
             
 def demo_flat():
-    from en.parser.nltk_lite.etree.ElementTree import ElementTree    
+    from nodebox_linguistics_extended.parser.nltk_lite.etree.ElementTree import ElementTree    
     import sys
 
     tree = ElementTree(toolbox.parse_corpus('iu_mien_samp.db', key='lx', encoding='utf8'))

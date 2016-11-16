@@ -42,9 +42,9 @@ defines three chart parsers:
 """
 
 import re
-from en.parser.nltk_lite.parse import ParseI, AbstractParse
-from en.parser.nltk_lite.parse.tree import Tree
-from en.parser.nltk_lite.parse import cfg
+from nodebox_linguistics_extended.parser.nltk_lite.parse import ParseI, AbstractParse
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
+from nodebox_linguistics_extended.parser.nltk_lite.parse import cfg
 
 ########################################################################
 ##  Edges
@@ -1571,7 +1571,7 @@ def demo():
     # Tokenize a sample sentence.
     sent = 'I saw John with a dog with my cookie'
     print "Sentence:\n", sent
-    from en.parser.nltk_lite import tokenize
+    from nodebox_linguistics_extended.parser.nltk_lite import tokenize
     tokens = list(tokenize.whitespace(sent))
 
     print tokens

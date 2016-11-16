@@ -11,8 +11,8 @@ contents of a Shoebox lexicon without reference to its metadata.
 """
 
 import os, re, sys
-from en.parser.nltk_lite.corpora import get_basedir
-from en.parser.nltk_lite.corpora.shoebox import ShoeboxFile
+from nodebox_linguistics_extended.parser.nltk_lite.corpora import get_basedir
+from nodebox_linguistics_extended.parser.nltk_lite.corpora.shoebox import ShoeboxFile
 from utilities import Field, SequentialDictionary
 
 

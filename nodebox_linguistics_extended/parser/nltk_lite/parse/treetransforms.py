@@ -105,7 +105,7 @@ The following is a short tutorial on the available transformations.
 
 """
 
-from en.parser.nltk_lite.parse.tree import Tree
+from nodebox_linguistics_extended.parser.nltk_lite.parse.tree import Tree
 
 def chomskyNormalForm(tree, factor = "right", horzMarkov = None, vertMarkov = 0, childChar = "|", parentChar = "^"):
     """
@@ -313,9 +313,9 @@ def demo():
     A demonstration showing how each tree transform can be used.
     """  
       
-    from en.parser.nltk_lite.draw.tree import draw_trees
-    from en.parser.nltk_lite.parse import bracket_parse
-    from en.parser.nltk_lite.parse import treetransforms
+    from nodebox_linguistics_extended.parser.nltk_lite.draw.tree import draw_trees
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import bracket_parse
+    from nodebox_linguistics_extended.parser.nltk_lite.parse import treetransforms
     from copy import deepcopy
     
     # original tree from WSJ bracketed text

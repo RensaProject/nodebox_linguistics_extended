@@ -34,7 +34,7 @@ class RegressiveImageryDictionary:
     1. Load a dictionary.
     2. Load an exclusion list (optional).
     3. Call analyze.
-    4. Call display_results with the value returned by analyze.    
+    4. Call display_results with the value returned by analyze.
   """
   def __init__(self):
     self.category_tree = CategoryRoot()
@@ -52,7 +52,7 @@ class RegressiveImageryDictionary:
   def load_dictionary_from_string(self, string):
     rid_in = StringIO.StringIO(string)
     self.load_dictionary(rid_in)
-      
+
   def load_dictionary(self, stream):
     primary_category = None
     secondary_category = None
@@ -83,7 +83,7 @@ class RegressiveImageryDictionary:
       self.load_exclusion_list(exc_in)
     finally:
       exc_in.close()
-      
+
   def load_exclusion_list_from_string(self, string):
     exc_in = StringIO.StringIO(string)
     self.load_exclusion_list(exc_in)
@@ -103,7 +103,7 @@ class RegressiveImageryDictionary:
     categories = self.pattern_tree.retrieve(word)
     if categories:
       return categories[0]
-          
+
   def analyze(self, text):
     results = RIDResults()
     def increment_category(category, token):
@@ -112,7 +112,7 @@ class RegressiveImageryDictionary:
         results.category_words[category] = []
       results.category_count[category] += 1
       results.category_words[category].append(token)
-    
+
     tokens = tokenize(text)
     results.word_count = len(tokens)
     for token in tokens:
@@ -123,7 +123,7 @@ class RegressiveImageryDictionary:
     return results
 
   def display_results(self, results):
-    # Detailed category breakout 
+    # Detailed category breakout
     total_count = 0
     for (category, count) in sorted(results.category_count.items(), key=lambda x: x[1], reverse=True):
       print "%-60s %5s" % (category.full_name(), count)
@@ -137,11 +137,11 @@ class RegressiveImageryDictionary:
         if cat.isa(top_cat):
           return top_cat
       print "Category %s doesn't exist in %s" % (category, top_categories)
-        
+
     top_category_counts = {}
     for top_category in top_categories:
       top_category_counts[top_category] = 0
-    
+
     for category in results.category_count:
       top_category = get_top_category(category)
       if top_category:
@@ -158,12 +158,12 @@ class RegressiveImageryDictionary:
     for top_category in top_categories:
       count = top_category_counts[top_category]
       print "%-20s: %f %%" % (top_category.full_name(), percent(count, total_count))
-        
+
     # Word count
     print "\n%d words total" % (results.word_count,)
 
   def display_results_html(self, results, title):
-    # Detailed category breakout 
+    # Detailed category breakout
     total_count = 0
     print "<html><head>"
 
@@ -264,11 +264,11 @@ function toggle(cat) {
         if cat.isa(top_cat):
           return top_cat
       print "Category %s doesn't exist in %s" % (category, top_categories)
-        
+
     top_category_counts = {}
     for top_category in top_categories:
       top_category_counts[top_category] = 0
-    
+
     for category in results.category_count:
       top_category = get_top_category(category)
       if top_category:
@@ -286,7 +286,7 @@ function toggle(cat) {
       count = top_category_counts[top_category]
       print "<tr><td>%s:</td><td>%f %%</td></tr>" % (top_category.full_name(), percent(count, total_count))
     print "<table>"
-        
+
     # Word count
     print "<p>%d words total</p>" % (results.word_count,)
     print "</body></html>"
@@ -340,7 +340,7 @@ class DiscriminationTree:
 
   def __str__(self):
     return "<DiscriminationTree %s>" % (self.index,)
- 
+
   def child_matching_index(self, index):
     for child in self.interiors:
       if child.index == index:
@@ -433,7 +433,7 @@ def uniq_c(words):
   results.append((last_word, last_word_count))
   results = sorted(results, key=lambda x: x[1], reverse=True)
   return results
-  
+
 
 # This dictionary is the one from
 # http://www.provalisresearch.com/Download/RID.ZIP with misspellings
@@ -3782,7 +3782,7 @@ class RIDApp:
     print "    -e FILE           Replaces the built-in exclusion list with FILE."
     print "    --add-dict=FILE   Processes FILE as a category dictionary."
     print "    --add-exc=FILE    Processes FILE as an exlusion list."
-    
+
   def run(self, args):
     rid = RegressiveImageryDictionary()
     load_default_dict = True
@@ -3815,18 +3815,18 @@ class RIDApp:
       sys.stderr.write("%s: %s\n" % (args[0], e.msg))
       self.usage(args)
       sys.exit(1)
-                       
+
     if load_default_dict:
       rid.load_dictionary_from_string(DEFAULT_RID_DICTIONARY)
     if load_default_exc:
       rid.load_exclusion_list_from_string(DEFAULT_RID_EXCLUSION_LIST)
-      
+
     results = rid.analyze(sys.stdin.read())
     if html_output:
       rid.display_results_html(results, title)
     else:
       rid.display_results(results)
-      
+
 if __name__ == '__main__':
   app = RIDApp()
   app.run(sys.argv)
@@ -3878,22 +3878,22 @@ secondary = [key.lower() for key in rid.category_tree.children["SECONDARY"].chil
 emotions  = [key.lower() for key in rid.category_tree.children["EMOTIONS"].children.keys()]
 
 class RIDScoreItem:
-	
+
 	def __init__(self, name, count, words, type):
-		
+
 		self.name  = name
 		self.count = count
 		self.words = words
 		self.type  = type
-		
+
 	def __str__(self):
-		
+
 		return self.name
 
 class RIDScore(list):
-	
+
 	def __init__(self, rid, results):
-	
+
 		self.primary = 0
 		self.secondary = 0
 		self.emotions = 0
@@ -3930,7 +3930,7 @@ class RIDScore(list):
 		self.emotions = score["EMOTIONS"]
 
 	def populate(self, results):
-		
+
 		# A RIDScore is a sorted list of category items,
 		# with relevant words found in the text assigned to each category.
 		for (category, count) in sorted(results.category_count.items(), key=lambda x: x[1], reverse=True):
@@ -3941,7 +3941,7 @@ class RIDScore(list):
 				type=category.parent.name.lower()
 			)
 			self.append(c)
-			
+
 	def __str__(self):
 		return str([str(item) for item in self])
 
