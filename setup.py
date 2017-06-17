@@ -5,7 +5,7 @@ setup(
   version = '0.0.1',
   description = 'Extension of the Nodebox Linguistics library',
   author = 'Sarah Harmon',
-  author_email = 'smharmon@ucsc.edu',
+  author_email = 'sharmon@bowdoin.edu',
   license='GNU',
   url = 'https://github.com/RensaProject/nodebox_linguistics_extended',
   classifiers = [
