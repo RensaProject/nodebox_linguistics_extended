@@ -24,7 +24,7 @@ commonsense_connectives = [
     "also", "did", "many", "before", "must", "through", 
     "back", "years", "where", "much", "your", "way", 
     "well", "down", "should", "because", "each", "just", 
-    "those", "eople", "mr", "how", "too", "little",
+    "those", "people", "mr", "how", "too", "little",
      "state", "good", "very", "make", "world", "still", 
      "own", "see", "men", "work", "long", "get", "here", 
      "between", "both", "life", "being", "under", "never", 
